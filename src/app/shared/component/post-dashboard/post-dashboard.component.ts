@@ -15,6 +15,9 @@ export class PostDashboardComponent implements OnInit {
     private _snackbar:SnackbarService
   ) { }
 
+  trackById(index:number,post:Ipost){
+    return post.id
+  }
   ngOnInit(): void {
     this.getPost()
    this.onUpdate()

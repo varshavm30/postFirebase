@@ -5,7 +5,7 @@
 </div>
 <hr>
 <div class="row">
-    <div class="col-md-4" *ngFor="let post of postsArr">
+    <div class="col-md-4 mb-4" *ngFor="let post of postsArr,trackBy:trackById">
         <app-post-card [postObj]="post" ></app-post-card>
     </div>
 </div>
