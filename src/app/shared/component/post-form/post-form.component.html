@@ -1,0 +1,37 @@
+
+<mat-card>
+    <mat-card-title>
+        {{isInEditMode?'Update Post':'Add Post'}}
+    </mat-card-title>
+    <mat-card-content>
+       <form [formGroup]="postForm" (ngSubmit)="onPostAdd()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input formControlName="title"
+            type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea formControlName="content"
+            class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="userId">UsedId</label>
+            <select formControlName="userId"
+            name="" id="userId" class="form-control">
+            <option *ngFor="let val of userIdArr"
+             [value]="val">{{val}}</option>
+        </select>
+        </div>
+        <button *ngIf="!isInEditMode" mat-raised-button color="primary" class="w-100">
+             Add Post
+        </button>
+        <button (click)="onUpdate()"
+        *ngIf="isInEditMode" mat-raised-button color="primary" class="w-100" type="button">
+            Update Post
+        </button>
+       </form>
+    </mat-card-content>
+</mat-card>
